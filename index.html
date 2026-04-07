@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LINE</title>
+<script>
+var LINKS = [
+  'https://line.me/R/ti/p/@227ykryh',
+  'https://line.me/R/ti/p/@380rhsfr',
+  'https://line.me/R/ti/p/@601hngrj',
+  'https://line.me/R/ti/p/@961bosfm',
+  'https://line.me/R/ti/p/@385gfpmh'
+  'https://line.me/R/ti/p/@289zmxrk'
+  'https://line.me/R/ti/p/@511ymbgj'
+  'https://line.me/R/ti/p/@998shxvx'
+  'https://line.me/R/ti/p/@309odsnz'
+  'https://line.me/R/ti/p/@256citxi'
+];
+
+var KEY = 'line_idx';
+var idx = parseInt(localStorage.getItem(KEY) || '0', 10);
+localStorage.setItem(KEY, (idx + 1) % LINKS.length);
+window.location.replace(LINKS[idx]);
+</script>
+</head>
+<body></body>
+</html>
