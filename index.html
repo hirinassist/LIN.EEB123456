@@ -3,26 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LINE</title>
+<title>LINE Redirect</title>
 <script>
+// 1. 補齊了每一行後方的逗號
 var LINKS = [
   'https://line.me/R/ti/p/@227ykryh',
   'https://line.me/R/ti/p/@380rhsfr',
   'https://line.me/R/ti/p/@601hngrj',
   'https://line.me/R/ti/p/@961bosfm',
-  'https://line.me/R/ti/p/@385gfpmh'
-  'https://line.me/R/ti/p/@289zmxrk'
-  'https://line.me/R/ti/p/@511ymbgj'
-  'https://line.me/R/ti/p/@998shxvx'
-  'https://line.me/R/ti/p/@309odsnz'
+  'https://line.me/R/ti/p/@385gfpmh', 
+  'https://line.me/R/ti/p/@289zmxrk',
+  'https://line.me/R/ti/p/@511ymbgj',
+  'https://line.me/R/ti/p/@998shxvx',
+  'https://line.me/R/ti/p/@309odsnz',
   'https://line.me/R/ti/p/@256citxi'
 ];
 
 var KEY = 'line_idx';
+
+// 取得目前的索引，如果沒紀錄就從 0 開始
 var idx = parseInt(localStorage.getItem(KEY) || '0', 10);
-localStorage.setItem(KEY, (idx + 1) % LINKS.length);
+
+// 確保 idx 不會超過陣列長度 (預防萬一)
+if (idx >= LINKS.length) { idx = 0; }
+
+// 先計算下一個要跳轉的序號並存入
+var nextIdx = (idx + 1) % LINKS.length;
+localStorage.setItem(KEY, nextIdx);
+
+// 執行跳轉
 window.location.replace(LINKS[idx]);
 </script>
 </head>
-<body></body>
+<body>
+    <p>正在導向 LINE...</p>
+</body>
 </html>
